@@ -12,19 +12,7 @@ app.set('view engine', "ejs");
 app.use(expressLayout);
 app.use(express.static('views'));
 
-// DB Connection
-console.log(process.env.mongo_URI)
-mongoose.connect(process.env.mongo_URI, {
-    useNewUrlParser:true,
-    useUnifiedTopology:true
-})
-
-const database = mongoose.connection;
-database.once('open', () => {
-    console.log('Connected to the database')
-}).on('error', (err) => {
-    console.log(err)
-})
+require('./config/database');
 
 app.use('/', routes);
 
