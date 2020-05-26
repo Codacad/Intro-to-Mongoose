@@ -9,4 +9,4 @@ const movieSchema = new Schema({
     nowShowing:Boolean
 })
 
-mdoule.exports = mongoose.model('Movie', movieSchema);
+module.exports = mongoose.model('Movie', movieSchema);
