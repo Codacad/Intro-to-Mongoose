@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose')
 const expressLayout = require('express-ejs-layouts');
 const cors = require('cors');
@@ -10,7 +11,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:false}));
 app.set('view engine', "ejs");
 app.use(expressLayout);
-app.use(express.static('views'));
+app.use(express.static(path.join(__dirname, 'views')));
 
 require('./config/database');
 
