@@ -7,9 +7,41 @@
 </head>
 <body>
     <div class="container">
-        <a href="/movies/new">New Movie</a>
-        <h1>Movies</h1>    
-
+        <div class="movies">
+            <a href="/movies/new">Create New Movie</a>
+            <h1>Movies</h1>     
+            <% if (typeof movie != "undefined") { %>
+                <div class="list-movies">                               
+                    <% movie.forEach(movie => { %>
+                        <div class="movie">        
+                            <div class="movie-poster">
+                                <img src="https://images.freecreatives.com/wp-content/uploads/2017/10/flat-clapperboard-icon_1063-38.jpg" alt="">
+                            </div>
+                            <div class="movie-detail">
+                                <div class="detail title">
+                                    <strong>Title:</strong><span><%= movie.title %> </span>
+                                </div>
+                                <div class="detail release-year">
+                                    <strong>Release Year:</strong><span><%= movie.releaseYear %> </span>
+                                </div>
+                                <div class="detail cast">
+                                    <strong>Cast:</strong>
+                                    <span><%= movie.cast.join(', ') %> </span>
+                                </div>
+                                <div class="detail mpaa-rating">
+                                    <strong>MPAA Rating:</strong>
+                                    <span><%= movie.mpaaRating %> </span>
+                                </div>
+                                <div class="detail now-showing">
+                                    <strong>Now Showing:</strong>
+                                    <span><%= movie.nowShowing %> </span>
+                                </div>
+                            </div>
+                        </div>    
+                    <% }) %>                
+                </div>
+            <% } %>
+        </div>
     </div>
 </body>
 </html>
