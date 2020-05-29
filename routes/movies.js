@@ -11,6 +11,18 @@ Router.get('/',(req, res) => {
         });
     })
 })
+
+// Delete Movie
+Router.get('/delete/:id',(req, res) => {
+    Movies.findByIdAndDelete(req.params.id, (err) => {
+        if(err){
+            res.status(400).send(err)
+        }
+        res.redirect('/movies');
+    })
+})
+
+// Movies Api
 Router.get('/api',(req, res) => {
     Movies.find({}, (err, docs) => {
         if(err){
@@ -19,10 +31,14 @@ Router.get('/api',(req, res) => {
         res.send(docs);
     })
 })
-Router.get('/new',(req, res) => {
+
+// Add Movie routes
+// Get
+Router.get('/add-new-movie',(req, res) => {
     res.render('newmovie');
 })
-Router.post('/',(req, res) => {
+// Post
+Router.post('/add-new-movie',(req, res) => {
     req.body.nowShowing = !!req.body.nowShowing;
     req.body.cast = req.body.cast.replace(/\s*, \s*/g, ",");
     if(req.body.cast){
@@ -30,14 +46,41 @@ Router.post('/',(req, res) => {
     }
 
     const movie = new Movies(req.body);
-
+    const errors = {};
+    const success = {}
     movie.save(function(err){
         if(err){
-            res.render('newmovie');
-        }
-        res.render('movies')
+            errors.msg = "Some went wrong...";
+        }else{
+            success.msg = "Movie added successfully...";
+        }   
+        res.render('newmovie', {
+            errors,
+            success            
+        })     
     })
     console.log(req.body);
 })
 
+// Movie Detail Route
+
+Router.get('/:title', (req, res) => {
+    Movies.find({title:req.params.title}, (err, movie) => {
+        if(err){
+            console.log(err)
+        }
+        res.render('movie-detail', {
+            movie
+        })
+    })    
+})
+
+// Router.post('/', (req, res) => {
+//     Movies.find({title:req.params.title}, (err, movie) => {
+//         if(err){
+//             console.log(err)
+//         }
+//         console.log(req.body)
+//     })
+// })
 module.exports = Router;

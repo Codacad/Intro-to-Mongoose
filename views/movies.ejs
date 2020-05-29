@@ -2,18 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <title>Movies</title>
 </head>
 <body>
     <div class="container">
         <div class="movies">
-            <a href="/movies/new">Create New Movie</a>
+            <a href="/movies/add-new-movie" class="create-movie">Create New Movie</a>
             <h1>Movies</h1>     
             <% if (typeof movie != "undefined") { %>
                 <div class="list-movies">                               
                     <% movie.forEach(movie => { %>
-                        <div class="movie">        
+                        <div class="movie">  
+                            <a class="delete-movie-btn" href="/movies/delete/<%=movie._id%>"><i class="fa fa-trash"></i></a>      
                             <div class="movie-poster">
                                 <img src="https://images.freecreatives.com/wp-content/uploads/2017/10/flat-clapperboard-icon_1063-38.jpg" alt="">
                             </div>
@@ -26,7 +27,11 @@
                                 </div>
                                 <div class="detail cast">
                                     <strong>Cast:</strong>
-                                    <span><%= movie.cast.join(', ') %> </span>
+                                    <div>
+                                        <span class="casts"><%= movie.cast.join(', ') %> </span>                                        
+                                        <a href="/movies/<%=movie.title%>">More</a>
+                                    </div>
+                                    
                                 </div>
                                 <div class="detail mpaa-rating">
                                     <strong>MPAA Rating:</strong>
@@ -34,7 +39,7 @@
                                 </div>
                                 <div class="detail now-showing">
                                     <strong>Now Showing:</strong>
-                                    <span><%= movie.nowShowing %> </span>
+                                    <span><%= movie.nowShowing ? "Yes" : "Nope" %> </span>
                                 </div>
                             </div>
                         </div>    

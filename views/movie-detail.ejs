@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Movies</title>
+</head>
+<body>
+    <div class="container">
+        <% if (typeof movie != "undefined") { %>
+        <% movie.forEach(thisMovie => { %>
+        <div class="individual-movie-detail">
+            <a href="/movies" class="back-to-movies">Back to Movies</a>                               
+            <h1><%= thisMovie.title %> </h1>             
+            <div class="movie-poster">
+                <img src="https://images.freecreatives.com/wp-content/uploads/2017/10/flat-clapperboard-icon_1063-38.jpg" alt="">
+            </div>            
+            <div class="detail">                                        
+                <div>    
+                    <strong>Movie</strong>
+                    <span><%= thisMovie.title %></span>
+                </div>
+                <div>
+                    <strong>Release Year</strong>
+                    <span><%= thisMovie.releaseYear %></span>
+                </div>
+                <div>
+                    <strong>Cast</strong>
+                    <span><%= thisMovie.cast.join(', ') %><span>.</span></span>                        
+                </div>
+                <div>
+                    <strong>MPAA Rating</strong>                                                              
+                    <span><%= thisMovie.mpaaRating %></span>
+                </div>
+                <div>
+                    <strong>Now Showing</strong>                                                
+                    <span><%= this.nowShowing ? "Yes" : "No" %></span>.
+                </div>                                            
+            </div>
+            <div class="review-form">
+                <h2>Review</h2>
+                <form action="/movies/<%=thisMovie.title%>" method="POST">
+                    <div class="form-group">
+                        <label for="comment">Comment</label><br>
+                        <textarea name="comment" id="comment" cols="30" rows="6"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Rating</label>
+                        <select name="rating" id="rating">
+                            <option value="1">1</option>
+                            <option value="1.5">1.5</option>
+                            <option value="2">2</option>
+                            <option value="2.5">2.5</option>
+                            <option value="3">3</option>
+                            <option value="3.5">3.5</option>
+                            <option value="4">4</option>
+                            <option value="4.5">4.5</option>
+                            <option value="5">5</option>
+                            <option value="5.5">5.5</option>
+                            <option value="6">6</option>
+                            <option value="6.5">6.5</option>
+                            <option value="7">7</option>
+                            <option value="7.5">7.5</option>
+                            <option value="8">8</option>
+                            <option value="8.5">8.5</option>
+                            <option value="9">9</option>
+                            <option value="9.5">9.5</option>
+                            <option value="10" selected>10</option>
+                        </select>
+                    </div>
+                    <input type="submit" value="Post Review" />
+                </form>
+            </div>
+        </div>
+        <% }) %>
+        <% } %>
+    </div>
+</body>
+</html>
