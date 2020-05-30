@@ -75,12 +75,23 @@ Router.get('/:title', (req, res) => {
     })    
 })
 
-// Router.post('/', (req, res) => {
-//     Movies.find({title:req.params.title}, (err, movie) => {
-//         if(err){
-//             console.log(err)
-//         }
-//         console.log(req.body)
-//     })
-// })
+Router.post('/:title', (req, res) => {
+    Movies.findOne({title:req.params.title}, (err, movie) => {
+        if(err){
+            console.log(err)
+        }
+        const error = {}
+        const success = {}
+        movie.reviews.push(req.body)
+        movie.save((err, doc) => {
+            if(err){
+                error.msg = 'Something went wrong'
+            }else{
+                success.msg = "Your reviews have been added successfully"
+            }
+            res.redirect(`/movies/${req.params.title}`)  
+                    
+        })
+    })
+})
 module.exports = Router;

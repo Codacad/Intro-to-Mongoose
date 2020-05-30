@@ -230,7 +230,7 @@ div.container div.add-new-movie form div.error span {
 }
 
 div.container div.add-new-movie form div.success {
-  background-color: rgba(0, 255, 0, 0.1);
+  background-color: rgba(78, 236, 78, 0.1);
   text-align: center;
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -538,7 +538,6 @@ div.container div.individual-movie-detail div.movie-poster img {
 
 div.container div.individual-movie-detail div.detail {
   display: block;
-  border-bottom: 5px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
 }
 
@@ -559,7 +558,7 @@ div.container div.individual-movie-detail div.detail div span {
 }
 
 div.container div.individual-movie-detail div.review-form {
-  width: 80%;
+  width: 100%;
   margin: 0px auto;
   background-color: #fff;
   -webkit-box-sizing: border-box;
@@ -643,6 +642,58 @@ div.container div.individual-movie-detail div.review-form form input[type="submi
 
 div.container div.individual-movie-detail div.review-form form input[type="submit"]:hover {
   background-color: #0851da;
+}
+
+div.container div.individual-movie-detail div.reviews {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: 5px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 2em;
+  margin-bottom: 2em;
+}
+
+div.container div.individual-movie-detail div.reviews div.review {
+  margin: 20px 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: .5em;
+  background-color: rgba(12, 224, 12, 0.267);
+  border-radius: 3px;
+}
+
+div.container div.individual-movie-detail div.reviews div.review div.comment p {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+div.container div.individual-movie-detail div.reviews div.review div.rating-and-date {
+  margin-top: 10px;
+}
+
+div.container div.individual-movie-detail div.reviews div.review div.rating-and-date span {
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 600;
+  padding: .2em;
+}
+
+div.container div.individual-movie-detail div.reviews div.review div.rating-and-date span.rating {
+  background-color: rgba(231, 12, 12, 0.329);
+  border-radius: 3px;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+
+div.container div.individual-movie-detail div.reviews div.review div.rating-and-date span.date {
+  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 div.container-fluid div#showcase {

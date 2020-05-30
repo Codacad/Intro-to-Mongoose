@@ -13,7 +13,7 @@ const movieSchema = new Schema({
     mpaaRating:String,
     cast:[String],
     nowShowing:Boolean,
-    rating:[reviewSchema]
+    reviews:[reviewSchema]
 }, {
     timestamps:true
 })

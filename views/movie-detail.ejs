@@ -35,9 +35,25 @@
                 </div>
                 <div>
                     <strong>Now Showing</strong>                                                
-                    <span><%= this.nowShowing ? "Yes" : "No" %></span>.
-                </div>                                            
+                    <span><%= thisMovie.nowShowing ? "Yes" : "No" %></span>.
+                </div>                                                      
             </div>
+            <div class="reviews">                
+                <% if (thisMovie.reviews.length) { %>
+                    <h2>Reviews</h2>
+                    <% thisMovie.reviews.forEach(review => { %>
+                        <div class="review">
+                            <div class="comment">
+                                <p><%= review.comment %> </p>
+                            </div>
+                            <div class="rating-and-date">
+                                <span><span>Rating </span><span class="rating"><%= review.rating %>/10 </span></span>
+                                <span class="date"><span>Created at </span><span><%= review.createdAt.toLocaleDateString() %> </span></span>
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } %>
+            </div>      
             <div class="review-form">
                 <h2>Review</h2>
                 <form action="/movies/<%=thisMovie.title%>" method="POST">
@@ -69,12 +85,13 @@
                             <option value="10" selected>10</option>
                         </select>
                     </div>
-                    <input type="submit" value="Post Review" />
+                    <input type="submit" value="Post Review" class="post-review"/>
                 </form>
             </div>
         </div>
         <% }) %>
         <% } %>
     </div>
+    <script src="../js/main.js"></script>
 </body>
 </html>

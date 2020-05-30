@@ -208,7 +208,7 @@ div.container{
                 }
             }            
             div.success{
-                background-color:rgba(0, 255, 0, 0.1);
+                background-color:rgba(78, 236, 78, 0.1);
                 text-align: center;                
                 width: 100%;
                 box-sizing: border-box;
@@ -428,7 +428,7 @@ div.container{
 
     div.individual-movie-detail{
         width: 50%;
-        margin: 20px auto;        
+        margin: 20px auto;                
         h1{
             padding:.5em 0em;
             color: rgba(0,0,0,.7);
@@ -453,8 +453,7 @@ div.container{
             width: 100%;
         }
         div.detail{
-            display: block;            
-            border-bottom: 5px solid rgba(0,0,0,.1);
+            display: block;                        
             margin-bottom: 20px;
             div{
                 strong{
@@ -466,16 +465,16 @@ div.container{
                 display: grid;
                 grid-template-columns: 3fr 9fr;
                 margin: 20px 0px;
-            }
+            }            
         }
 
         div.review-form{
-            width: 80%;
+            width: 100%;
             margin: 0px auto;
             background-color: #fff;
             box-sizing: border-box;
             padding: 1em;
-            border-radius: 5px;
+            border-radius: 5px;            
             h2{
                 text-align: center;
                 color: teal;
@@ -538,6 +537,45 @@ div.container{
                 }
                 input[type="submit"]:hover{
                     background-color:rgb(8, 81, 218);
+                }
+            }
+        }
+        div.reviews{
+            box-sizing: border-box;
+            border-bottom: 5px solid rgba(0,0,0,.1);
+            padding-bottom: 2em;
+            margin-bottom: 2em;
+            div.review{
+                margin: 20px 0px;
+                box-sizing: border-box;
+                padding: .5em;
+                background-color: rgba(12, 224, 12, 0.267);
+                border-radius: 3px;
+                div.comment{
+                    p{
+                        color: rgba(0,0,0,.8);
+                    }
+                }
+                div.rating-and-date{
+                    margin-top: 10px;
+                    span{
+                        color:rgba(0,0,0,.6);
+                        font-weight: 600;
+                        padding: .2em;                        
+                    }
+                    span.rating{
+                        background-color: rgba(231, 12, 12, 0.329);
+                        border-radius: 3px;
+                        color: rgba(255, 255, 255, 0.8);
+                        letter-spacing: 2px;
+                        font-size: 12px;
+                    }
+                    span.date{
+                        float: right;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
                 }
             }
         }
